@@ -193,6 +193,10 @@ const cli = [
     path: 'boot-files'
   },
   {
+    name: 'Preload File',
+    path: 'preload-file'
+  },
+  {
     name: 'Prefetch Feature',
     path: 'prefetch-feature'
   },

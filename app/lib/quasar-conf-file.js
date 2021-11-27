@@ -539,7 +539,8 @@ class QuasarConfFile {
       registerServiceWorker: 'src-pwa/register-service-worker',
       serviceWorker: 'src-pwa/custom-service-worker',
       electronMain: 'src-electron/electron-main',
-      electronPreload: 'src-electron/electron-preload'
+      electronPreload: 'src-electron/electron-preload',
+      preload: 'src/boot/preload'
     }, cfg.sourceFiles)
 
     appFilesValidations(cfg)

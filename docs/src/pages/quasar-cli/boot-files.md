@@ -283,15 +283,16 @@ In order to better understand how a boot file works and what it does, you need t
 1. Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets)
 2. Quasar Extras get imported (Roboto font -- if used, icons, animations, ...)
 3. Quasar CSS & your app's global CSS are imported
-4. App.vue is loaded (not yet being used)
-5. Store is imported (if using Vuex Store in src/store)
-6. Router is imported (in src/router)
-7. Boot files are imported
-8. Router default export function executed
-9. Boot files get their default export function executed
-10. (if on Electron mode) Electron is imported and injected into Vue prototype
-11. (if on Cordova mode) Listening for "deviceready" event and only then continuing with following steps
-12. Instantiating Vue with root component and attaching to DOM
+4. Preload file is import; if a function is loaded successfully, the function is executed
+5. App.vue is loaded (not yet being used)
+6. Store is imported (if using Vuex Store in src/store)
+7. Router is imported (in src/router)
+8. Boot files are imported
+9. Router default export function executed
+10. Boot files get their default export function executed
+11. (if on Electron mode) Electron is imported and injected into Vue prototype
+12. (if on Cordova mode) Listening for "deviceready" event and only then continuing with following steps
+13. Instantiating Vue with root component and attaching to DOM
 
 ## Examples of boot files
 

@@ -360,6 +360,7 @@ $ quasar new -h
     $ quasar new <l|layout> [-f <option>] <layout_file_name>
     $ quasar new <c|component> [-f <option>] <component_file_name>
     $ quasar new <b|boot> [-f ts] <boot_name>
+    $ quasar new <x|preload> [-f ts] preload
     $ quasar new <s|store> [-f ts] <store_module_name>
 
     # Examples:

@@ -8,6 +8,13 @@
  * boot: ['file', ...] // do not add ".js" extension to it.
  *
  * Boot files are your "main.js"
+ *
+ * or
+ *
+ * Use "quasar new preload" and add it there if it must
+ * run before the store and router creation.
+ *
+ * Preload files are pre your "main.js"
  **/
 
 <% if (__vueDevtools !== false) { %>
@@ -64,6 +71,12 @@ const RootComponent = defineComponent({
 <% } %>
 
 export default async function (createAppFn, quasarUserOptions<%= ctx.mode.ssr ? ', ssrContext' : '' %>) {
+  const preload = await import('app/<%= sourceFiles.preload %>');
+  if (preload) {
+
+    await preload();
+  }
+
   // create store and router instances
   <% if (store) { %>
   const store = typeof createStore === 'function'

@@ -11,6 +11,7 @@ export * from "./ssr";
 export * from "./store";
 export * from "./prefetch";
 export * from "./boot";
+export * from "./preload";
 export * from "./configuration";
 export * from "./route";
 export * from "./ssrmiddleware";
