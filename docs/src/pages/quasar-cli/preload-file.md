@@ -5,11 +5,9 @@ desc: Managing your startup code in a Quasar app.
 
 A common use case for Quasar applications is to **run code before the root Vue app instance is instantiated**, like injecting and initializing your own dependencies (examples: Vue components, libraries...) or simply configuring some startup code of your app.
 
-Since you won't be having access to any `/main.js` file (so that Quasar CLI can seamlessly initialize and build same codebase for SPA/PWA/SSR/Cordova/Electron) Quasar provides an elegant solution to that problem by allowing users to define so-called boot files.  See the [Boot files](/quasar-cli/boot-files) documentation.
+Since you won't be having access to any `/main.js` file (so that Quasar CLI can seamlessly initialize and build the same codebase for SPA/PWA/SSR/Cordova/Electron) Quasar provides an elegant solution to that problem by allowing users to define so-called boot files.  See the [Boot files](/quasar-cli/boot-files) documentation.
 
-Boot files work after the store and router have been setup, which makes it problematic if there are requirements to execute code prior to creation of either of those two resources.  That is where the preload file comes into play.
-
-Keep in mind the Quasar concept of encouraging developers to write maintainable and elegant cross-platform applications; the preload function should not be a cluttered and hard to maintain collection of code.  
+Boot files work after the store and router have been setup which makes them problematic if there are requirements to execute code prior to creation of either of those two resources.  That is where the preload file comes into play allowing the app developer to run generic code at the very startup of the application.  Keep in mind the Quasar concept of encouraging developers to write maintainable and elegant cross-platform applications; the preload function should not be a cluttered and hard to maintain collection of code  and thus should be focused and only used on an as needed basis if the boot files do not suffice.  
 
 ## Anatomy of a preload file
 
@@ -23,8 +21,7 @@ export default async () => {
 
 ## When to use boot files
 ::: warning
-Please make sure you understand what problem boot files solve and when it is appropriate to use them, to avoid applying them in cases where they are not needed.
-Only if the problem is not addressed by the boot files, look to tuse the preload file.
+Please make sure you understand what problem boot files solve and when it is appropriate to use them, to avoid applying them in cases where they are not needed.  Only if the problem is not addressed by the boot files, look to tuse the preload file.
 :::
 
 Preload file fulfill one special purpose: they run code **before** the App's store, router *and* Vue root component is instantiated.  It cannot be used to interfere with Vue Router, inject Vue prototype or inject the root instance of the Vue app.  However, it can be used to preload a library needed by the store, router or Vue root component creation.
