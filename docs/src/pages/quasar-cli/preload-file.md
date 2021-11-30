@@ -7,9 +7,9 @@ A common use case for Quasar applications is to **run code before the root Vue a
 
 Since you won't be having access to any `/main.js` file (so that Quasar CLI can seamlessly initialize and build same codebase for SPA/PWA/SSR/Cordova/Electron) Quasar provides an elegant solution to that problem by allowing users to define so-called boot files.  See the [Boot files](/quasar-cli/boot-files) documentation.
 
-Boot files work after the store and router have been setup, which makes it problematic if there are requirements to execute code prior to creation of either of those two resources.   That is where the preload file comes into play.
+Boot files work after the store and router have been setup, which makes it problematic if there are requirements to execute code prior to creation of either of those two resources.  That is where the preload file comes into play.
 
-Keep in mind the Quasar concept of encouraging developers to write maintainable and elegant cross-platform applications; the preload function so hould not be a cluttered and hard to maintain collection of code.  
+Keep in mind the Quasar concept of encouraging developers to write maintainable and elegant cross-platform applications; the preload function should not be a cluttered and hard to maintain collection of code.  
 
 ## Anatomy of a preload file
 
