@@ -4,4 +4,4 @@
 // more info on params: https://v2.quasar.dev/quasar-cli/preload-file
 export default async () => {
   // something to do
-};
+}

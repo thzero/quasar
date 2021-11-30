@@ -71,11 +71,13 @@ const RootComponent = defineComponent({
 <% } %>
 
 export default async function (createAppFn, quasarUserOptions<%= ctx.mode.ssr ? ', ssrContext' : '' %>) {
-  const preload = await import('app/<%= sourceFiles.preload %>');
+  <% if (preload) { %>
+  const { default: preload } = await import('app/<%= sourceFiles.preload %>')
   if (preload) {
 
-    await preload();
+    await preload()
   }
+  <% } %>
 
   // create store and router instances
   <% if (store) { %>

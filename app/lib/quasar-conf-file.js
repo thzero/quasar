@@ -545,6 +545,14 @@ class QuasarConfFile {
 
     appFilesValidations(cfg)
 
+    // do we got preload?
+    const preloadPath = appPaths.resolve.app(cfg.sourceFiles.preload)
+    cfg.preload = (
+      fs.existsSync(preloadPath) ||
+      fs.existsSync(preloadPath + '.js') ||
+      fs.existsSync(preloadPath + '.ts')
+    )
+
     // do we got vuex?
     const storePath = appPaths.resolve.app(cfg.sourceFiles.store)
     cfg.store = (
